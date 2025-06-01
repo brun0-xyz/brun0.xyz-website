@@ -5,7 +5,7 @@
       "shape": { "type": "circle" },
       "opacity": { "value": 0.5, "random": false },
       "size": { "value": 3, "random": true },
-      "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+      "line_linked": { "enable": false },
       "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false }
     },
     "interactivity": {
