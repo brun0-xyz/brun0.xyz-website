@@ -15,9 +15,16 @@
   <h1>Bruno</h1>
   <p>Hi I am Bruno, a male frontend developer. I also go by Brunys, you can call me which ever you like.</p>
   <p>I am also a artist who has their comissions open. I do not do NSFW. @brunoisadegenerate on discord if you are interested.</p>
+
+  <!-- Music controls -->
+  <div id="audio-controls">
+    <button id="play-pause">Pause</button>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.01">
+    <input type="range" id="progress-bar" min="0" max="100" value="0">
+  </div>
 </div>
 
-<audio id="audio" src="/loveforyou.mp3" crossorigin="anonymous"></audio>
+<audio id="audio" crossorigin="anonymous"></audio>
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="/main.js"></script>
