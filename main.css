@@ -30,13 +30,15 @@ body {
   align-items: center;
   cursor: pointer;
   z-index: 10;
-  transition: opacity 1s ease;
   font-size: 2rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 600;
+  transition: 0.3s ease-in-out;
 }
-#splash:hover { color: #aaa; }
+#splash:hover {
+  color: #aaa;
+}
 #main-content {
   display: flex;
   flex-direction: column;
@@ -44,8 +46,11 @@ body {
   text-align: center;
   opacity: 0;
   transition: opacity 2s ease;
+  z-index: 2;
 }
-#main-content.fade-in { opacity: 1; }
+#main-content.fade-in {
+  opacity: 1;
+}
 #visual {
   width: 200px;
   height: 200px;
@@ -55,14 +60,25 @@ body {
   box-shadow: 0 0 30px rgba(255,255,255,0.5);
   transition: transform 0.1s linear, box-shadow 0.1s linear;
 }
-h1, p { margin: 10px 0; font-family: "Lexend", sans-serif; }
-
 #controls {
   margin-top: 20px;
   display: flex;
   gap: 10px;
   align-items: center;
-  z-index: 1;
-  position: relative;
+  z-index: 5;
 }
-#controls input[type=range] { width: 100px; }
+#controls input[type="range"] {
+  width: 150px;
+}
+#controls button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+#controls button:hover {
+  background: #555;
+}
