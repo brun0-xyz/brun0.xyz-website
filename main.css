@@ -1,100 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
 html, body {
-    margin: 0;
-    height: 100%;
-    background: #000;
-    color: #fff;
-    font-family: "Lexend", sans-serif;
-    overflow: hidden;
-  }
-  #particles-js {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: 0;
-  }
-  body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-  #splash {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 10;
-    transition: opacity 1s ease;
-    font-size: 2rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-    transition: 0.3s ease-in-out;
-  }
-  #splash:hover {
-    color: #aaa;
-  }
-  #main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 2s ease;
-  }
-  #main-content.fade-in {
-    opacity: 1;
-  }
-  #visual {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: url('/bruno.jpg') center/cover;
-    margin: 20px auto;
-    box-shadow: 0 0 30px rgba(255,255,255,0.5);
-    transition: transform 0.1s linear, box-shadow 0.1s linear;
-  }
-  h1, p {
-    margin: 10px 0;
-    font-family: "Lexend", sans-serif;
-  }
-    #audio-controls {
-      margin-top: 20px;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-    
-    #audio-controls button {
-      background: #222;
-      color: #fff;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      font-family: "Lexend", sans-serif;
-    }
-    
-    #audio-controls input[type=range] {
-      width: 100px;
-    }
+  margin: 0;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  font-family: "Lexend", sans-serif;
+  overflow: hidden;
+}
+#particles-js {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+#splash {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: opacity 1s ease;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+#splash:hover { color: #aaa; }
+#main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+#main-content.fade-in { opacity: 1; }
+#visual {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: url('/bruno.jpg') center/cover;
+  margin: 20px auto;
+  box-shadow: 0 0 30px rgba(255,255,255,0.5);
+  transition: transform 0.1s linear, box-shadow 0.1s linear;
+}
+h1, p { margin: 10px 0; font-family: "Lexend", sans-serif; }
 
-    #music-controls {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-      z-index: 20;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 8px 12px;
-      border-radius: 5px;
-    }
-
-
+#controls {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+}
+#controls input[type=range] { width: 100px; }
