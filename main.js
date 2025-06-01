@@ -9,7 +9,7 @@ particlesJS('particles-js', {
     "move": { "enable": true, "speed": 2 }
   },
   "interactivity": {
-    "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } },
+    "events": { "onhover": { "enable": true, "mode": "grab" } },
     "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } } }
   },
   "retina_detect": true
@@ -19,18 +19,17 @@ const splash = document.getElementById('splash');
 const mainContent = document.getElementById('main-content');
 const audio = document.getElementById('audio');
 const visual = document.getElementById('visual');
-const playBtn = document.getElementById('play-btn');
-const pauseBtn = document.getElementById('pause-btn');
+const toggleBtn = document.getElementById('toggle-btn');
 const volumeSlider = document.getElementById('volume-slider');
 const progressBar = document.getElementById('progress-bar');
 
-const playlist = [
-  '/loveforyou.mp3',
-  '/anothersong.mp3' // Add more paths if needed
-];
-let currentTrackIndex = 0;
-
 let audioContext, analyser, source, dataArray;
+let playlist = [
+  '/loveforyou.mp3',
+  '/song2.mp3',
+  '/song3.mp3'
+];
+let currentTrackIndex = parseInt(localStorage.getItem('currentTrackIndex')) || 0;
 
 splash.addEventListener('click', () => {
   splash.style.opacity = '0';
@@ -47,16 +46,12 @@ function initAudio() {
 
   const savedVolume = localStorage.getItem('volume');
   const savedTime = localStorage.getItem('currentTime');
-  const savedPaused = localStorage.getItem('paused');
+  const wasPaused = localStorage.getItem('paused') === 'true';
 
   if (savedVolume) audio.volume = savedVolume;
   volumeSlider.value = audio.volume;
 
   if (savedTime) audio.currentTime = savedTime;
-
-  if (savedPaused === 'false') {
-    audio.play();
-  }
 
   audioContext = new (window.AudioContext || window.webkitAudioContext)();
   source = audioContext.createMediaElementSource(audio);
@@ -67,15 +62,26 @@ function initAudio() {
   dataArray = new Uint8Array(analyser.frequencyBinCount);
 
   animate();
+
+  if (wasPaused) {
+    audio.pause();
+    toggleBtn.textContent = 'Play';
+  } else {
+    audio.play();
+    toggleBtn.textContent = 'Pause';
+  }
 }
 
-playBtn.addEventListener('click', () => {
-  audio.play();
-  localStorage.setItem('paused', 'false');
-});
-pauseBtn.addEventListener('click', () => {
-  audio.pause();
-  localStorage.setItem('paused', 'true');
+toggleBtn.addEventListener('click', () => {
+  if (audio.paused) {
+    audio.play();
+    toggleBtn.textContent = 'Pause';
+    localStorage.setItem('paused', 'false');
+  } else {
+    audio.pause();
+    toggleBtn.textContent = 'Play';
+    localStorage.setItem('paused', 'true');
+  }
 });
 
 volumeSlider.addEventListener('input', () => {
@@ -85,14 +91,21 @@ volumeSlider.addEventListener('input', () => {
 
 audio.addEventListener('timeupdate', () => {
   const progress = (audio.currentTime / audio.duration) * 100;
-  progressBar.value = progress || 0;
+  progressBar.value = progress;
   localStorage.setItem('currentTime', audio.currentTime);
 });
 
 progressBar.addEventListener('input', () => {
-  const seekTime = (progressBar.value / 100) * audio.duration;
-  audio.currentTime = seekTime;
-  localStorage.setItem('currentTime', seekTime);
+  const newTime = (progressBar.value / 100) * audio.duration;
+  audio.currentTime = newTime;
+});
+
+audio.addEventListener('ended', () => {
+  currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+  localStorage.setItem('currentTrackIndex', currentTrackIndex);
+  audio.src = playlist[currentTrackIndex];
+  audio.play();
+  localStorage.setItem('paused', 'false');
 });
 
 function animate() {
