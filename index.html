@@ -1,8 +1,8 @@
 <html>
 <head>
-<title>brun0.xyz</title>
-<link rel="stylesheet" href="/main.css">
-<link rel="icon" type="image/x-icon" href="/bruno.jpg">
+  <title>brun0.xyz</title>
+  <link rel="stylesheet" href="/main.css">
+  <link rel="icon" type="image/x-icon" href="/bruno.jpg">
 </head>
 <body>
 
@@ -15,11 +15,18 @@
   <h1>Bruno</h1>
   <p>Hi I am Bruno, a male frontend developer. I also go by Brunys, you can call me which ever you like.</p>
   <p>I am also a artist who has their comissions open. I do not do NSFW. @brunoisadegenerate on discord if you are interested.</p>
+  
+  <div id="controls">
+    <button id="play-btn">Play</button>
+    <button id="pause-btn">Pause</button>
+    <input id="volume-slider" type="range" min="0" max="1" step="0.01">
+    <input id="progress-bar" type="range" min="0" max="100" value="0">
+  </div>
+</div>
 
 <audio id="audio" crossorigin="anonymous"></audio>
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="/main.js"></script>
-
 </body>
 </html>
