@@ -26,8 +26,8 @@ const progressBar = document.getElementById('progress-bar');
 let audioContext, analyser, source, dataArray;
 let playlist = [
   '/loveforyou.mp3',
-  '/song2.mp3',
-  '/song3.mp3'
+  '/myordinarylife.mp3',
+  '/primecookie.mp3'
 ];
 let currentTrackIndex = parseInt(localStorage.getItem('currentTrackIndex')) || 0;
 
