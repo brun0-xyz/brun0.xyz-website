@@ -1,16 +1,45 @@
 particlesJS('particles-js', {
   "particles": {
-    "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
-    "color": { "value": "#ffffff" },
-    "shape": { "type": "circle" },
-    "opacity": { "value": 0.5 },
-    "size": { "value": 3, "random": true },
-    "line_linked": { "enable": false },
-    "move": { "enable": true, "speed": 2 }
+    "number": {
+      "value": 100,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#ffffff"
+    },
+    "shape": {
+      "type": "circle"
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": true
+    },
+    "size": {
+      "value": 3,
+      "random": true
+    },
+    "line_linked": {
+      "enable": false
+    },
+    "move": {
+      "enable": true,
+      "speed": 1.6,
+      "direction": "bottom-left",   
+      "random": true,              
+      "straight": false,         
+      "out_mode": "out",
+      "bounce": false
+    }
   },
   "interactivity": {
-    "events": { "onhover": { "enable": true, "mode": "grab" } },
-    "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } } }
+    "events": {
+      "onhover": { "enable": false },
+      "onclick": { "enable": false },
+      "resize": true
+    }
   },
   "retina_detect": true
 });
@@ -25,8 +54,12 @@ const progressBar = document.getElementById('progress-bar');
 
 let audioContext, analyser, source, dataArray;
 let playlist = [
+  '/posterboy.mp3',
+  '/imsofucked.mp3',
   '/loveforyou.mp3',
   '/myordinarylife.mp3',
+  '/lucky.mp3',
+  '/myheart.mp3',
   '/primecookie.mp3'
 ];
 let currentTrackIndex = parseInt(localStorage.getItem('currentTrackIndex')) || 0;
