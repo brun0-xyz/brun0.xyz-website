@@ -54,13 +54,14 @@ const progressBar = document.getElementById('progress-bar');
 
 let audioContext, analyser, source, dataArray;
 let playlist = [
-  '/posterboy.mp3',
-  '/imsofucked.mp3',
-  '/loveforyou.mp3',
-  '/myordinarylife.mp3',
-  '/lucky.mp3',
-  '/myheart.mp3',
-  '/primecookie.mp3'
+  '/assets/music/loveforyou.mp3',
+  '/assets/music/imsofucked.mp3',
+  '/assets/music/lucky.mp3',
+  '/assets/music/primecookie.mp3',
+  '/assets/music/posterboy.mp3',
+  '/assets/music/myordinarylife.mp3',
+  '/assets/music/myheart.mp3'
+  
 ];
 let currentTrackIndex = parseInt(localStorage.getItem('currentTrackIndex')) || 0;
 

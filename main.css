@@ -55,7 +55,7 @@ body {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: url('/pfp.png') center/cover;
+  background: url('/assets/images/theevenompfp.jpeg') center/cover;
   margin: 20px auto;
   box-shadow: 0 0 30px rgba(255,255,255,0.5);
   transition: transform 0.1s linear, box-shadow 0.1s linear;
@@ -82,4 +82,61 @@ body {
 }
 #controls button:hover {
   background: #333;
+}
+
+::selection {
+	background: #fff;
+	color: #000;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 6px;
+  background: white;
+  border-radius: 3px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: black;
+  border: 2px solid white;
+  cursor: pointer;
+  margin-top: -5px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: black;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-track {
+  background: white;
+  height: 6px;
+  border-radius: 3px;
+}
+
+input[type="range"]::-ms-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: black;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-track {
+  background: white;
+  height: 6px;
+  border-radius: 3px;
+  border-color: transparent;
+  color: transparent;
 }
