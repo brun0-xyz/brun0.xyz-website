@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZPKX0WNWV"></script>
@@ -11,46 +12,57 @@
   <meta charset="UTF-8">
   <title>brun0.xyz</title>
   <link rel="stylesheet" href="/main.css">
-  <link rel="icon" type="image/x-icon" href="/assets/images/theevenompfp.jpeg">
+  <link rel="icon" type="image/x-icon" href="/assets/images/brian moser.jpg">
   <meta property="og:title" content="Bruno">
-  <meta property="og:description" content="Hi I am Bruno, a male frontend web developer. I also go by Brunys, you can call me which ever you like. I like drawing, coding, editing, and alot of other stuffs!">
-  <meta property="og:image" content="/assets/images/theevenompfp.jpeg">
+  <meta property="og:description" content="🦾🦾🦾🦾🦾🦾">
+  <meta property="og:image" content="/assets/images/brian moser.jpg">
   <meta property="og:image:width" content="100">
   <meta property="og:image:height" content="100">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#000000">
   <meta name="msapplication-TileColor" content="#ffc163">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="dark">
+  <nav>
+    <h1>Bruno</h1>
+  </nav>
 
-<div id="particles-js"></div>
+  <section class="hero">
+    <img src="/assets/images/brian moser.jpg" alt="Profile Picture">
+    <h2>Bruno</h2>
+    <p>
+      Hi I am Bruno. I am a frontend web developer, a digital artist and animator, a video editor, and in my spare time a youtuber. I also go by Brunys, you can call me which ever you like.
+    </p>
+  </section>
 
-<div id="splash">Click to Enter</div>
-
-<div id="main-content">
-  <div id="visual"></div>
-  <h1>Bruno</h1>
-  <p>Hi I am Bruno, a male frontend web developer. I also go by Brunys, you can call me which ever you like.</p>
-  <p>I like drawing, coding, editing, and alot of other stuffs!</p>
-
-  <div id="controls">
-    <button id="toggle-btn">Pause</button>
-    <input id="volume-slider" type="range" min="0" max="1" step="0.01">
-    <input id="progress-bar" type="range" min="0" max="100" step="0.1" value="0">
-  </div>
-  <br>
-  <div id="controls">
-  <a href="https://www.youtube.com/@brunys1"><button id="toggle-btn"><i class="fa-brands fa-youtube"></i></button></a>
-  <a href="https://www.tiktok.com/@brunys.mp4"><button id="toggle-btn"><i class="fa-brands fa-tiktok"></i></button></a>
-  <a href="https://discord.gg/btbyUQ7ggr"><button id="toggle-btn"><i class="fa-brands fa-discord"></i></button></a>
-  </div>
+<div id="customMenu">
+  <ul>
+    <li>No Skidding!</li>
+  </ul>
 </div>
+  
+  <div class="links">
+    <a href="https://youtube.com/@brunys1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@brunys.mp4" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+    <a href="#maybe"><i class="fa-brands fa-discord"></i></a>
+  </div>
 
-<audio id="audio" crossorigin="anonymous"></audio>
+  <div class="player">
+    <img src="/assets/images/music/ithastobe.jpg" alt="Cover" id="cover">
+    <div class="player-info">
+      <h4 id="track-title">Has To Be</h4>
+    </div>
+    <div class="controls">
+      <button id="prev">⏮</button>
+      <button id="play">▶</button>
+      <button id="next">⏭</button>
+    </div>
+    <audio id="audio" src="/assets/music/hastobe.mp3"></audio>
+  </div>
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script src="/main.js"></script>
-
+  <script src="/main.js"></script>
+  <script src="/skid.js"></script>
 </body>
 </html>
