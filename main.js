@@ -1,5 +1,10 @@
 const tracks = [
       {
+        title: "Love For You (Slowed Down)",
+        src: "/assets/music/loveforyou.mp3",
+        cover: "/assets/images/music/loveforyouslowed.jpg"
+      },
+      {
         title: "Has To Be",
         src: "/assets/music/hastobe.mp3",
         cover: "/assets/images/music/ithastobe.jpg"
