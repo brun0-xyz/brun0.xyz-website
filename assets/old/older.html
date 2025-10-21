@@ -24,33 +24,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div class="grid-bg"></div>
+<body class="dark">
+  <nav>
+    <h1>Bruno</h1>
+  </nav>
 
-  <div id="intro-screen">
-    <h1>CLICK TO ENTER</h1>
+  <section class="hero">
+    <img src="/assets/images/brunysblack.png" alt="Profile Picture">
+    <h2>Bruno</h2>
+    <p>
+      Hi I am Bruno. I am a frontend web developer, a digital artist and animator, a video editor, and in my spare time a youtuber. I also go by Brunys, you can call me which ever you like.
+    </p>
+  </section>
+  
+  <div class="links">
+    <a href="https://youtube.com/@brunys1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@brunys.mp4" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+    <a href="https://discord.gg/qVgKmXBnrx"><i class="fa-brands fa-discord"></i></a>
+    <a href="https://afilite.app"><i class="fa-solid fa-globe"></i></a>
   </div>
 
-  <audio id="bg-music" loop>
-    <source src="/assets/music/talkdown.mp3" type="audio/mpeg">
-  </audio>
-
-  <div class="content" id="main-content">
-    <div class="profile-box">
-      <img class="spin" src="/assets/images/brunysblack.png" alt="Profile Picture">
-      <h1>Brunys</h1>
-      <p>I am Brunys! a frontend web developer who does cool things! im also a little wierd.</p>
-      <div class="socials">
-        <a href="https://discord.gg/qVgKmXBnrx" target="_blank"><i class="fa-brands fa-discord"></i></a>
-        <a href="https://youtube.com/@brunys1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://tiktok.com/@brunys.mp4" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="https://afilite.app" target="_blank"><i class="fa-solid fa-link"></i></a>
-      </div>
+  <div class="player">
+    <img src="/assets/images/music/loveforyouslowed.jpg" alt="Cover" id="cover">
+    <div class="player-info">
+      <h4 id="track-title">Has To Be</h4>
     </div>
+    <div class="controls">
+      <button id="prev">⏮</button>
+      <button id="play">▶</button>
+      <button id="next">⏭</button>
+    </div>
+    <audio id="audio" src="/assets/music/loveforyou.mp3"></audio>
   </div>
 
-  <img src="/assets/images/def.png" class="bottom-image" id="bottom-img">
-
-  <script src="/index.js"></script>
+  <script src="/main.js"></script>
+  <script src="/skid.js"></script>
 </body>
 </html>
