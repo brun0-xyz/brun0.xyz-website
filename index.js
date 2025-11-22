@@ -74,3 +74,5 @@ const intro = document.getElementById("intro-screen");
 
     const img = document.getElementById("bottom-img");
     img.src = images[Math.floor(Math.random() * images.length)];
+
+    

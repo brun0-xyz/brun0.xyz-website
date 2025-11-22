@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Bio Page</title>
+
+<!-- Lexend font -->
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+:root {
+    --bg-color: #000;
+    --text-color: #fff;
+    --accent-color: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Lexend", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    background-image: 
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Click to enter overlay */
+#intro-screen {
+    position: fixed;
+    inset: 0;
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 1s ease;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+#intro-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s ease forwards;
+}
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Spin + fade combined for profile picture */
+.profile-pic.spin-fade {
+    opacity: 0;
+    animation: spinFade 1s ease forwards, spinForever 8s linear infinite;
+    animation-delay: 0.6s, 0.6s;
+}
+
+/* Spin forever */
+@keyframes spinForever {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Fade-up animation */
+@keyframes spinFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Layout container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Banner */
+.banner {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 2px solid #222;
+}
+
+/* Profile Picture */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-top: -75px;
+    object-fit: cover;
+    background-color: #000;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+.bio {
+    margin: 20px auto;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 60px;
+}
+.social-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: transform 0.3s, color 0.3s;
+}
+.social-links a:hover {
+    color: #ccc;
+    transform: scale(1.2);
+}
+
+hr {
+    width: 80px;
+    margin: 60px auto;
+    border: none;
+    border-top: 1px solid #333;
+    opacity: 0.8;
+}
+
+/* Scroll Down Button */
+.scroll-btn {
+    display: inline-block;
+    margin: 40px auto 100px;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+    animation: fadeUp 1.5s ease forwards;
+    font-family: "Lexend", sans-serif;
+}
+.scroll-btn:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.05);
+}
+
+/* Showcase section */
+.showcase {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+.showcase-item {
+    width: 500px;
+    text-align: center;
+    transition: 0.3s;
+}
+.showcase-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+}
+
+/* Different hover effects */
+.showcase-item:nth-child(1):hover img {
+    transform: scale(1.1);
+}
+.showcase-item:nth-child(2):hover img {
+    filter: grayscale(100%) brightness(1.3);
+}
+.showcase-item:nth-child(3):hover img {
+    transform: rotate(2deg) scale(1.05);
+}
+
+.showcase-item h3 {
+    margin: 15px 0 5px;
+}
+.showcase-item p {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid #222;
+    padding: 60px 0;
+    text-align: center;
+    color: #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 8px;
+    font-size: 1.2rem;
+    transition: color 0.3s, transform 0.3s;
+}
+footer a:hover {
+    color: #aaa;
+    transform: scale(1.2);
+}
+
+/* Extra height section to make scrolling natural */
+.spacer {
+    height: 400px;
+}
+
+@media (max-width: 1200px) {
+    .showcase-item {
+        width: 90%;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+</style>
+</head>
+<body>
+
+<!-- Click to Enter -->
+<div id="intro-screen">CLICK TO ENTER</div>
+<audio id="bg-music" loop>
+    <source src="/assets/music/freakshow.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Banner -->
+<img class="banner fade-up" src="/assets/images/sleep.jpeg" alt="Banner">
+
+<!-- Main Container -->
+<div class="container fade-up" style="animation-delay: 0.4s;">
+    <!-- Profile -->
+    <img class="profile-pic spin-fade" src="/assets/images/sickdev.jpeg" alt="Profile Picture">
+
+    <!-- Bio -->
+    <div class="bio fade-up" style="animation-delay: 0.8s;">
+        <p>Hello! I’m <strong>Brunys</strong> — a frontend web developer. I like to draw! Also, I don't like myself sometimes. I love you!</p>
+    </div>
+
+    <!-- Social Links -->
+    <div class="social-links fade-up" style="animation-delay: 1s;">
+        <a href="https://discord.gg/qVgKmXBnrx" target="_blank"><i class="fa-brands fa-discord"></i></a>
+        <a href="https://youtube.com/@brunys1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://tiktok.com/@brunys.mp4" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+
+    <hr class="fade-up" style="animation-delay: 1.2s;">
+
+    <!-- Scroll Button -->
+    <button class="scroll-btn" id="scroll-btn">PROJECTS</button>
+
+    <div class="spacer"></div>
+
+    <!-- Showcase -->
+    <div class="showcase fade-up" id="projects" style="animation-delay: 1.4s;">
+        <a href="https://afilite.app" target="_blank" class="showcase-item">
+            <img src="/assets/images/v3art.png" alt="Project 1">
+            <h1>AfiliteOS</h1>
+            <p>A web based operating system that is fast, beautiful, and easy to use.</p>
+        </a>
+
+        <a href="#" target="_blank" class="showcase-item">
+            <img src="https://via.placeholder.com/500?text=Project+2" alt="Project 2">
+            <h3>Project Two</h3>
+            <p>An experimental design concept I built recently.</p>
+        </a>
+
+        <a href="#" target="_blank" class="showcase-item">
+            <img src="https://via.placeholder.com/500?text=Project+3" alt="Project 3">
+            <h3>Project Three</h3>
+            <p>A collaboration piece built with friends and passion.</p>
+        </a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="fade-up" style="animation-delay: 1.6s;">
+    <p><i class="fas fa-envelope"></i> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    <div>
+        <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+        <a href="#" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
+    </div>
+</footer>
+
+<script>
+const intro = document.getElementById("intro-screen");
+const music = document.getElementById("bg-music");
+const scrollBtn = document.getElementById("scroll-btn");
+const projects = document.getElementById("projects");
+
+// Save and resume music time
+music.addEventListener("timeupdate", () => {
+    localStorage.setItem("musicTime", music.currentTime);
+});
+
+intro.addEventListener("click", () => {
+    intro.classList.add("fade-out");
+    setTimeout(() => {
+        intro.style.display = "none";
+        const savedTime = localStorage.getItem("musicTime");
+        if (savedTime) music.currentTime = parseFloat(savedTime);
+        music.play().catch(err => console.log(err));
+    }, 800);
+});
+
+// Smooth scroll function using requestAnimationFrame
+function smoothScroll(target, duration = 800) {
+    const start = window.scrollY;
+    const end = target.getBoundingClientRect().top + window.scrollY;
+    const distance = end - start;
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        window.scrollTo(0, start + distance * easeInOutCubic(progress));
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    function easeInOutCubic(t) {
+        return t < 0.5
+            ? 4 * t * t * t
+            : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    requestAnimationFrame(animation);
+}
+
+// Attach smooth scroll to button
+scrollBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    smoothScroll(projects, 1000); // 1000ms duration
+});
+</script>
+
+</body>
+</html>
